@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+  <style>
+    body {
+      text-align:left;
+      font-family:cursive;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var score = urlParams.get('score');
+
+      var scoreElement = document.getElementById('score');
+      scoreElement.textContent = 'Your Score: ' + score;
+    };
+  </script>
+</head>
+<body>
+  <h1 align="center">Quiz Results</h1>
+  <p align="center"id="score" class="result"></p>
+  <h2>Questions and Correct Answers</h2>
+  <ol>
+    <li>Which demoness's nose and ears were cut by Lakshmana?<strong> Surpanaka</strong></li>
+
+    <li>Who is the goddess of knowledge, music, and arts in Hindu mythology?<strong> Saraswathi</strong></li>
+
+    <li>Who is the tenth and final avatar of Lord Vishnu? <strong> Kalki</strong></li>
+
+    <li>Who is the elephant-headed god in Hindu mythology? <strong> Ganesha</strong></li>
+
+    <li>Who is the demon king defeated by Goddess Durga?<strong> Mahishasura</strong></li>
+
+    <li>Who is the son of Shiva and Parvati, who rides a peacock? <strong> Karthikeya</strong></li>
+
+    <li>In the epic Mahabharata, who was the guru of archery to the Pandavas and Kauravas? <strong> Dronacharya</strong></li>
+
+    <li>Who is the wife of Raavana in the epic Ramayana? <strong> Mandodari</strong></li>
+
+    <li>In the Mahabharata, who was poisoned at a young age but did not die? <strong> Bheema</strong></li>
+  </ol>
+</body>
+</html>
