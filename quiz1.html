@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <style>
+    body {
+        text-align: center;
+        font-family: cursive;
+        color: black;
+        background-image:url(sports.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .question {
+        text-align: left;
+        font-size: 20px;
+    }
+    input[type="submit"] {
+        grid-column: 2/3;
+        margin-top: 30px;
+        color: blue;
+    }
+</style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('quizForm').addEventListener('submit', function(e)
+      {
+        e.preventDefault();
+        var score = calculateScore();
+        window.location.href = 'results1.html?score=' + score;
+      });
+
+      function calculateScore() {
+        var quizForm = document.getElementById('quizForm');
+        var questions = quizForm.getElementsByClassName('question');
+        var score = 0;
+
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var selectedOption = question.querySelector('input[name="q' + (i + 1) + '"]:checked');
+
+          if (selectedOption && selectedOption.value === 'correct') {
+            score++;
+          }
+        }
+
+        return score;
+      }
+    });
+  </script>
+</head>
+<body >
+  <h1>Sports Quiz</h1>
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. Which country won the FIFA World Cup in 2018?</p>
+        <input type="radio" name="q1" value="wrong" /> a) Brazil<br />
+        <input type="radio" name="q1" value="correct" /> b) France<br />
+        <input type="radio" name="q1" value="wrong" /> c) Germany<br /> 
+        <input type="radio" name="q1" value="wrong" /> d) Argentina<br />
+      </div>
+
+      <div class="question">
+        <p>2. Who is the highest individual scorer in Test cricket?</p>
+        <input type="radio" name="q2" value="correct" /> a) Sachin Tendulkar<br />
+        <input type="radio" name="q2" value="wrong" /> b) Brian Lara<br />
+        <input type="radio" name="q2" value="wrong" /> c) Don Bradman<br /> 
+        <input type="radio" name="q2" value="wrong" /> d) Matthew Hayden<br />
+      </div>
+
+      <div class="question">
+        <p>3. Which player has won the most NBA championships in history?</p>
+        <input type="radio" name="q3" value="wrong" /> a) Michael Jordan<br />
+        <input type="radio" name="q3" value="wrong" /> b) Magic Johnson<br />
+        <input type="radio" name="q3" value="wrong" /> c) LeBron James<br /> 
+        <input type="radio" name="q3" value="correct" /> d) Bill Russell<br />
+      </div>
+
+    <div class="question">
+      <p>4. How many players are there in a standard ice hockey team?</p>
+      <input type="radio" name="q4" value="wrong" /> a) 4<br />
+      <input type="radio" name="q4" value="wrong" /> b) 6<br />
+      <input type="radio" name="q4" value="correct" /> c) 5<br /> 
+      <input type="radio" name="q4" value="wrong" /> d) 7<br />
+    </div>
+
+    <div class="question">
+      <p>5. In which country did the sport of archery originate?</p>
+      <input type="radio" name="q5" value="correct" /> a) China<br />
+      <input type="radio" name="q5" value="wrong" /> b) England<br />
+      <input type="radio" name="q5" value="wrong" /> c) Greece<br /> 
+      <input type="radio" name="q5" value="wrong" /> d) India<br />
+    </div>
+
+    <div class="question">
+      <p>6. Which city hosted the 2016 Summer Olympics?</p>
+      <input type="radio" name="q6" value="wrong" /> a) Beijing, China<br />
+      <input type="radio" name="q6" value="wrong" /> b) London, UK<br />
+      <input type="radio" name="q6" value="correct" /> c) Rio de Janeiro, Brazil<br /> 
+      <input type="radio" name="q6" value="wrong" /> d) Sydney, Australia<br />
+    </div>
+
+    <div class="question">
+      <p>7. Which sport uses the terms "strike," "spare," and "gutter ball"?</p>
+      <input type="radio" name="q7" value="correct" /> a) Bowling<br />
+      <input type="radio" name="q7" value="wrong" /> b) Tennis<br />
+      <input type="radio" name="q7" value="wrong" /> c) Golf<br /> 
+      <input type="radio" name="q7" value="wrong" /> d) Soccer<br />
+    </div>
+
+    <div class="question">
+      <p>8. Which country won the most gold medals in the 2020 Summer Olympics?</p>
+      <input type="radio" name="q8" value="wrong" /> a) USA<br />
+      <input type="radio" name="q8" value="correct" /> b) China<br />
+      <input type="radio" name="q8" value="wrong" /> c) Japan<br /> 
+      <input type="radio" name="q8" value="wrong" /> d) Russia<br />
+    </div>
+
+    <div class="question">
+      <p>9. Which player has won the most Wimbledon titles in tennis?</p>
+      <input type="radio" name="q9" value="wrong" /> a) Pete Sampras<br />
+      <input type="radio" name="q9" value="correct" /> b) Roger Federer<br />
+      <input type="radio" name="q9" value="wrong" /> c) Novak Djokovic<br /> 
+      <input type="radio" name="q9" value="wrong" /> d) Rafael Nadal<br />
+    </div>
+    <input type="submit" value="SUBMIT" />
+    </form>
+</body>
+</html>

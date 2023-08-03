@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+  <style>
+    body {
+      text-align:left;
+      font-family:cursive;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var score = urlParams.get('score');
+
+      var scoreElement = document.getElementById('score');
+      scoreElement.textContent = 'Your Score: ' + score;
+    };
+  </script>
+</head>
+<body>
+  <h1 align="center">Quiz Results</h1>
+  <p align="center"id="score" class="result"></p>
+  <h2>Questions and Correct Answers</h2>
+  <ol>
+    <li>Which country won the FIFA World Cup in 2018?<strong> France</strong></li>
+
+    <li>Who holds the record for the highest individual score in Test cricket?<strong> Sachin Tendulkar</strong></li>
+
+    <li>Which player has won the most NBA championships in history? <strong> Bill Russell</strong></li>
+
+    <li>How many players are there in a standard ice hockey team? <strong> 5</strong></li>
+
+    <li>In which country did the sport of archery originate?<strong> China</strong></li>
+
+    <li>Which city hosted the 2016 Summer Olympics? <strong> Rio de Janeiro, Brazil</strong></li>
+
+    <li>Which sport uses the terms "strike," "spare," and "gutter ball"? <strong> Bowling</strong></li>
+
+    <li>Which country won the most gold medals in the 2020 Summer Olympics? <strong> China</strong></li>
+
+    <li>Which player has won the most Wimbledon titles in tennis? <strong> Roger Federer</strong></li>
+  </ol>
+</body>
+</html>
