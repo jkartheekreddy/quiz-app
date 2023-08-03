@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+  <style>
+    body {
+      text-align:left;
+      font-family:cursive;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var score = urlParams.get('score');
+
+      var scoreElement = document.getElementById('score');
+      scoreElement.textContent = 'Your Score: ' + score;
+    };
+  </script>
+</head>
+<body>
+  <h1 align="center">Quiz Results</h1>
+  <p align="center"id="score" class="result"></p>
+  <h2>Questions and Correct Answers</h2>
+  <ol>
+    <li>Which is the largest desert in the world?<strong> Sahara Desert</strong></li>
+
+    <li>Which river is the longest in the world?<strong> Nile River</strong></li>
+
+    <li>Mount Everest, the highest mountain in the world, is located in which mountain range? <strong> Himalayas</strong></li>
+
+    <li>Which country is known as the "Land of the Rising Sun"? <strong> Japan</strong></li>
+
+    <li>Which country is known as the "Land of the Midnight Sun"?<strong> Norway</strong></li>
+
+    <li>Which continent is known as the "Dark Continent"? <strong> Africa</strong></li>
+
+    <li>The Panama Canal connects which two major bodies of water? <strong> Atlantic Ocean and Pacific Ocean</strong></li>
+
+    <li>The city of Istanbul is located on two continents. Which continents does it straddle? <strong> Europe and Middle East</strong></li>
+
+    <li>The Great Barrier Reef, one of the world's largest coral reef systems, is located off the coast of which country? <strong> Australia</strong></li>
+  </ol>
+</body>
+</html>

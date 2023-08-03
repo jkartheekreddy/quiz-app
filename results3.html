@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Results</title>
+  <style>
+    body {
+      text-align:left;
+      font-family:cursive;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var score = urlParams.get('score');
+
+      var scoreElement = document.getElementById('score');
+      scoreElement.textContent = 'Your Score: ' + score;
+    };
+  </script>
+</head>
+<body>
+  <h1 align="center">Quiz Results</h1>
+  <p align="center"id="score" class="result"></p>
+  <h2>Questions and Correct Answers</h2>
+  <ol>
+    <li>Who is the current Vice-President of the United States?<strong> Kamala Harris</strong></li>
+
+    <li>What is the political system of China?<strong> Communist Party-led State</strong></li>
+
+    <li>Who is the Prime Minister of the United Kingdom? <strong> Rishi Sunak</strong></li>
+
+    <li>In which country is the famous landmark "The Kremlin" located? <strong> Russia</strong></li>
+
+    <li>What is the capital city of Canada?<strong> Ottawa</strong></li>
+
+    <li>Who was the first female Chancellor of Germany? <strong> Helmut Kohl</strong></li>
+
+    <li>What is the name of the legislative body in the United States? <strong> Senate and House of Representatives</strong></li>
+
+    <li>Who was the first President of South Africa after the end of apartheid? <strong> Nelson Mandela</strong></li>
+
+    <li>What is the term length for a member of the European Parliament (MEP)? <strong> 5 years</strong></li>
+  </ol>
+</body>
+</html>

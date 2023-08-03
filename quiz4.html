@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <style>
+    body {
+        text-align: center;
+        font-family: cursive;
+        color: black;
+        background-image:url(geography.jpg);
+    }
+    h1 {
+        font-size: 30px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .question {
+        text-align: left;
+        font-size: 20px;
+    }
+    input[type="submit"] {
+        grid-column: 2/3;
+        margin-top: 30px;
+        color: blue;
+    }
+</style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('quizForm').addEventListener('submit', function(e)
+      {
+        e.preventDefault();
+        var score = calculateScore();
+        window.location.href = 'results4.html?score=' + score;
+      });
+
+      function calculateScore() {
+        var quizForm = document.getElementById('quizForm');
+        var questions = quizForm.getElementsByClassName('question');
+        var score = 0;
+
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var selectedOption = question.querySelector('input[name="q' + (i + 1) + '"]:checked');
+
+          if (selectedOption && selectedOption.value === 'correct') {
+            score++;
+          }
+        }
+
+        return score;
+      }
+    });
+  </script>
+</head>
+<body >
+  <h1>Geographical Quiz</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Which is the largest desert in the world?</p>
+            <input type="radio" name="q1" value="wrong"/> a) Gobi Desert<br />
+            <input type="radio" name="q1" value="wrong"/> b) Kalahari Desert<br />
+            <input type="radio" name="q1" value="correct"/> c) Sahara Desert<br /> 
+            <input type="radio" name="q1" value="wrong"/> d) Atacama Desert<br />
+          </div>
+          
+          <div class="question">
+            <p>2. Which river is the longest in the world?</p>
+            <input type="radio" name="q2" value="wrong"/> a) Amazon River<br />
+            <input type="radio" name="q2" value="wrong"/> b) Mississippi River<br />
+            <input type="radio" name="q2" value="wrong"/> c) Yangtze River<br /> 
+            <input type="radio" name="q2" value="correct"/> d) Nile River<br />
+          </div>
+          
+          <div class="question">
+            <p>3. Mount Everest, the highest mountain in the world, is located in which mountain range?</p>
+            <input type="radio" name="q3" value="wrong"/> a) Andes<br />
+            <input type="radio" name="q3" value="wrong"/> b) Rocky Mountains<br />
+            <input type="radio" name="q3" value="wrong"/> c) Alps<br /> 
+            <input type="radio" name="q3" value="correct"/> d) Himalayas<br />
+          </div>
+          
+          <div class="question">
+            <p>4. Which country is known as the "Land of the Rising Sun"?</p>
+            <input type="radio" name="q4" value="wrong"/> a) China<br />
+            <input type="radio" name="q4" value="wrong"/> b) South Korea<br />
+            <input type="radio" name="q4" value="correct"/> c) Japan<br /> 
+            <input type="radio" name="q4" value="wrong"/> d) Vietnam<br />
+          </div>
+          
+          <div class="question">
+            <p>5. Which country is known as the "Land of the Midnight Sun"?</p>
+            <input type="radio" name="q5" value="wrong"/> a) USA<br />
+            <input type="radio" name="q5" value="wrong"/> b) Argentina<br />
+            <input type="radio" name="q5" value="correct"/> c) Norway<br /> 
+            <input type="radio" name="q5" value="wrong"/> d) Perth<br />
+          </div>
+          
+          <div class="question">
+            <p>6. Which continent is known as the "Dark Continent"?</p>
+            <input type="radio" name="q6" value="correct"/> a) Africa<br />
+            <input type="radio" name="q6" value="wrong"/> b) Antarctica<br />
+            <input type="radio" name="q6" value="wrong"/> c) Europe<br /> 
+            <input type="radio" name="q6" value="wrong"/> d) Asia<br />
+          </div>
+          
+          <div class="question">
+            <p>7. The Panama Canal connects which two major bodies of water?</p>
+            <input type="radio" name="q7" value="wrong"/> a) Mediterranean Sea and Red Sea<br />
+            <input type="radio" name="q7" value="correct"/> b) Atlantic Ocean and Pacific Ocean<br />
+            <input type="radio" name="q7" value="wrong"/> c) Indian Ocean and South China Sea<br /> 
+            <input type="radio" name="q7" value="wrong"/> d) Gulf of Mexico and Caribbean Sea<br />
+          </div>
+          
+          <div class="question">
+            <p>8. The city of Istanbul is located on two continents. Which continents does it straddle?</p>
+            <input type="radio" name="q8" value="wrong"/> a) Europe and Africa<br />
+            <input type="radio" name="q8" value="wrong"/> b) Europe and Asia<br />
+            <input type="radio" name="q8" value="correct"/> c) Europe and Middle East<br /> 
+            <input type="radio" name="q8" value="wrong"/> d) Europe and Australia<br />
+          </div>
+          
+          <div class="question">
+            <p>9. The Great Barrier Reef, one of the world's largest coral reef systems, is located off the coast of which country?</p>
+            <input type="radio" name="q9" value="wrong"/> a) Brazil<br />
+            <input type="radio" name="q9" value="wrong"/> b) Mexico<br />
+            <input type="radio" name="q9" value="correct"/> c) Australia<br /> 
+            <input type="radio" name="q9" value="wrong"/> d) Indonesia<br />
+          </div>
+          
+          <input type="submit" value="SUBMIT" />
+        </form>
+    </body>
+</html>          

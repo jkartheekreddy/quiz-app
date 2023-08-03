@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <style>
+    body {
+        text-align: center;
+        font-family: cursive;
+        color: black;
+        background-image:url(politics.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-blend-mode: hue;
+        opacity:1;
+
+    }
+    h1 {
+        font-size: 30px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .question {
+        text-align: left;
+        font-size: 20px;
+    }
+    input[type="submit"] {
+        grid-column: 2/3;
+        margin-top: 30px;
+        color: blue;
+    }
+</style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('quizForm').addEventListener('submit', function(e)
+      {
+        e.preventDefault();
+        var score = calculateScore();
+        window.location.href = 'results3.html?score=' + score;
+      });
+
+      function calculateScore() {
+        var quizForm = document.getElementById('quizForm');
+        var questions = quizForm.getElementsByClassName('question');
+        var score = 0;
+
+        for (var i = 0; i < questions.length; i++) {
+          var question = questions[i];
+          var selectedOption = question.querySelector('input[name="q' + (i + 1) + '"]:checked');
+
+          if (selectedOption && selectedOption.value === 'correct') {
+            score++;
+          }
+        }
+
+        return score;
+      }
+    });
+  </script>
+</head>
+<body >
+  <h1>Political Quiz</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Who is the current Vice-President of the United States?</p>
+            <input type="radio" name="q1" value="wrong"/> a) Joe Biden<br />
+            <input type="radio" name="q1" value="wrong"/> b) Donald Trump<br />
+            <input type="radio" name="q1" value="correct"/> c) Kamala Harris<br /> 
+            <input type="radio" name="q1" value="wrong"/> d) Barack Obama<br />
+          </div>
+          
+          <div class="question">
+            <p>2. What is the political system of China?</p>
+            <input type="radio" name="q2" value="wrong"/> a) Democracy<br />
+            <input type="radio" name="q2" value="wrong"/> b) Monarchy<br />
+            <input type="radio" name="q2" value="wrong"/> c) Federal Republic<br /> 
+            <input type="radio" name="q2" value="correct"/> d) Communist Party-led State<br />
+          </div>
+          
+          <div class="question">
+            <p>3. Who is the Prime Minister of the United Kingdom?</p>
+            <input type="radio" name="q3" value="wrong"/> a) Theresa May<br />
+            <input type="radio" name="q3" value="wrong"/> b) Boris Johnson<br />
+            <input type="radio" name="q3" value="correct"/> c) Rishi Sunak<br /> 
+            <input type="radio" name="q3" value="wrong"/> d) David Cameron<br />
+          </div>
+          
+          <div class="question">
+            <p>4. In which country is the famous landmark "The Kremlin" located?</p>
+            <input type="radio" name="q4" value="correct"/> a) Russia<br />
+            <input type="radio" name="q4" value="wrong"/> b) China<br />
+            <input type="radio" name="q4" value="wrong"/> c) Germany<br /> 
+            <input type="radio" name="q4" value="wrong"/> d) India<br />
+          </div>
+          
+          <div class="question">
+            <p>5. What is the capital city of Canada?</p>
+            <input type="radio" name="q5" value="wrong"/> a) Ottawa<br />
+            <input type="radio" name="q5" value="wrong"/> b) Toronto<br />
+            <input type="radio" name="q5" value="wrong"/> c) Montreal<br /> 
+            <input type="radio" name="q5" value="correct"/> d) Vancouver<br />
+          </div>
+          
+          <div class="question">
+            <p>6. Who was the first female Chancellor of Germany?</p>
+            <input type="radio" name="q6" value="wrong"/> a) Angela Merkel<br />
+            <input type="radio" name="q6" value="correct"/> b) Helmut Kohl<br />
+            <input type="radio" name="q6" value="wrong"/> c) Gerhard Schröder<br /> 
+            <input type="radio" name="q6" value="wrong"/> d) Franz von Papen<br />
+          </div>
+          
+          <div class="question">
+            <p>7. What is the name of the legislative body in the United States?</p>
+            <input type="radio" name="q7" value="wrong"/> a) Congress<br />
+            <input type="radio" name="q7" value="wrong"/> b) Parliament<br />
+            <input type="radio" name="q7" value="wrong"/> c) National Assembly<br /> 
+            <input type="radio" name="q7" value="correct"/> d) Senate and House of Representatives<br />
+          </div>
+          
+          <div class="question">
+            <p>8. Who was the first President of South Africa after the end of apartheid?</p>
+            <input type="radio" name="q8" value="correct"/> a) Nelson Mandela<br />
+            <input type="radio" name="q8" value="wrong"/> b) F. W. de Klerk<br />
+            <input type="radio" name="q8" value="wrong"/> c) Thabo Mbeki<br /> 
+            <input type="radio" name="q8" value="wrong"/> d) Kgalema Motlanthe<br />
+          </div>
+          
+          <div class="question">
+            <p>9. What is the term length for a member of the European Parliament (MEP)?</p>
+            <input type="radio" name="q9" value="correct"/> a) 5 years<br />
+            <input type="radio" name="q9" value="wrong"/> b) 4 years<br />
+            <input type="radio" name="q9" value="wrong"/> c) 3 years<br /> 
+            <input type="radio" name="q9" value="wrong"/> d) 6 years<br />
+          </div>
+          <input type="submit" value="SUBMIT" />
+        </form>
+    </body>
+</html>          
